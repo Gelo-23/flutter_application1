@@ -1,7 +1,72 @@
 # flutter_application_1
 
-## Lab Activity 1: Discussion
+## Laboratory Discussion: Dynamic Images in the News Feed
 
-The newsfeed card supports post images and optional profile images from local assets. Post images use Flutter's `Image.asset`, while profile pictures use `CircleAvatar` with a person icon as a fallback when no avatar is supplied. Image files belong in `assets/images/`, which is registered in `pubspec.yaml`.
+### Integrating an Image into `newsfeed_card.dart`
 
-The Like and Comment controls use `TextButton.icon` widgets. The like count is displayed as a number; reaction behavior is not implemented.
+The `NewsfeedCard` widget accepts optional image values through `String? postImage` and `String? avatarImage`. These fields are nullable because not every news-feed post must contain a post image or avatar.
+
+In `newsfeed_screen.dart`, each card is created with `NewsfeedCard` parameters. The Tony Stark card passes an image path:
+
+```dart
+NewsfeedCard(
+  userName: 'Tony Stark',
+  postContent: 'I am Iron Man.',
+  date: 'December 1, 2023',
+  numOfLikes: 3000,
+  postImage: 'assets/images/malupiton.jpg',
+),
+```
+
+The image is stored in `assets/images/malupiton.jpg`, and `pubspec.yaml` registers the assets folder:
+
+```yaml
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+```
+
+### Making the Image Optional
+
+Inside `newsfeed_card.dart`, the optional post-image path is read and checked before rendering:
+
+```dart
+final postImagePath = postImage;
+
+if (postImagePath != null)
+  Padding(
+    padding: EdgeInsets.only(top: 12.h),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(8.r),
+      child: Image.asset(
+        postImagePath,
+        height: 180.h,
+        width: double.infinity,
+        fit: BoxFit.cover,
+      ),
+    ),
+  ),
+```
+
+`if (postImagePath != null)` is a dynamic conditional widget. When `postImage` contains an asset path, Flutter displays `Image.asset`; when it is omitted or is `null`, the image section is not created. The Steve Rogers card demonstrates this behavior because it has no `postImage` parameter.
+
+The same idea is used for avatar images. `avatarImagePath == null` selects a default `Icons.person_outline` icon, while a supplied asset path is passed to `AssetImage` inside `CircleAvatar`.
+
+This approach makes the reusable `NewsfeedCard` support three combinations: a post with an image, a post without an image, and an optional profile image with a fallback icon.
+
+## Before and After Enhancement
+
+Add the two device screenshots to a `screenshots` folder in this repository and then update the placeholders below with their exact filenames.
+
+### Before Enhancement
+
+<!-- Add: screenshots/before.png -->
+
+### After Enhancement
+
+<!-- Add: screenshots/after.png -->
+
+## GitHub Repository
+
+Repository: https://github.com/Gelo-23/flutter_application1
