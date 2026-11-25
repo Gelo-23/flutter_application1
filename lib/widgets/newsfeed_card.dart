@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:material_ui/material_ui.dart';
 
 class NewsfeedCard extends StatelessWidget {
   const NewsfeedCard({
@@ -63,11 +63,7 @@ class NewsfeedCard extends StatelessWidget {
                             color: Colors.grey,
                           ),
                           SizedBox(width: 4.w),
-                          Icon(
-                            Icons.public,
-                            color: Colors.grey,
-                            size: 14.w,
-                          ),
+                          Icon(Icons.public, color: Colors.grey, size: 14.w),
                         ],
                       ),
                     ],

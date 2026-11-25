@@ -25,6 +25,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/images/avatars/
 ```
 
 ### Making the Image Optional
@@ -54,6 +55,10 @@ if (postImagePath != null)
 The same idea is used for avatar images. `avatarImagePath == null` selects a default `Icons.person_outline` icon, while a supplied asset path is passed to `AssetImage` inside `CircleAvatar`.
 
 This approach makes the reusable `NewsfeedCard` support three combinations: a post with an image, a post without an image, and an optional profile image with a fallback icon.
+
+## Notification Profile Images
+
+`NotificationWidget` accepts an optional `avatarImageAsset` path. When provided, it displays the local image in a circular avatar; otherwise, it shows the default person icon. `NotificationScreen` currently uses `assets/images/avatars/jordan_smith.jpg` for Jordan Smith. Add more portrait files to `assets/images/avatars/` and pass their asset paths to the matching `NotificationWidget` to display additional profile pictures.
 
 ## Before and After Enhancement
 
