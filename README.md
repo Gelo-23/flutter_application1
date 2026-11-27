@@ -58,7 +58,7 @@ This approach makes the reusable `NewsfeedCard` support three combinations: a po
 
 ## Notification Profile Images
 
-`NotificationWidget` accepts an optional `avatarImageAsset` path. When provided, it displays the local image in a circular avatar; otherwise, it shows the default person icon. `NotificationScreen` currently uses `assets/images/avatars/jordan_smith.jpg` for Jordan Smith. Add more portrait files to `assets/images/avatars/` and pass their asset paths to the matching `NotificationWidget` to display additional profile pictures.
+`NotificationWidget` accepts an optional `avatarImageAsset` path. When provided, it displays the local image in a circular avatar; otherwise, it shows the default person icon. `NotificationScreen` currently uses `assets/images/avatars/alex_morgan.jpg` for Alex Morgan and `assets/images/avatars/jordan_smith.jpg` for Jordan Smith. Add more portrait files to `assets/images/avatars/` and pass their asset paths to the matching `NotificationWidget` to display additional profile pictures.
 
 ## Before and After Enhancement
 

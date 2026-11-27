@@ -16,6 +16,7 @@ class NotificationScreen extends StatelessWidget {
         description: 'liked your photo',
         post: 'Weekend memories',
         name: 'Alex Morgan',
+        avatarImageAsset: 'assets/images/avatars/alex_morgan.jpg',
       ),
       NotificationWidget(
         description: 'commented on your post',
