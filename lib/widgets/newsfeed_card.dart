@@ -86,8 +86,10 @@ class NewsfeedCard extends StatelessWidget {
                 padding: EdgeInsets.only(top: 12.h),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.r),
-                  child: Image.asset(
-                    postImagePath,
+                  child: Image(
+                    image: postImagePath.startsWith('http')
+                        ? NetworkImage(postImagePath)
+                        : AssetImage(postImagePath),
                     height: 180.h,
                     width: double.infinity,
                     fit: BoxFit.cover,
